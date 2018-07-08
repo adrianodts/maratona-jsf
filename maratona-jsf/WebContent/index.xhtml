@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<!--  Importante ter o head, pois sem ele, as chamadas ajax não são renderizadas -->
+	<h:head></h:head>
+
+	<h:body>
+		<h3>JSF 2.0 + Ajax Hello World Example</h3>
+		<h:form>
+			<h:inputText id="nome" value="#{estudanteRegistrarBean.estudante.nome}"></h:inputText>
+			<h:commandButton value="Welcome Me" actionListener="#{estudanteRegistrarBean.saySomething}" />
+			<h2><h:outputText id="output" value="#{estudanteRegistrarBean.mensagem}" /></h2>			
+			<!--<f:ajax execute="nome" render="output" /> -->
+			<!--</h:commandButton> -->
+						
+		</h:form>
+			<h:outputText value="Comparando a igualdade entre nota1 e nota2 = "/>
+			<h:outputLabel value="#{estudanteRegistrarBean.estudante.nota1 eq estudanteRegistrarBean.estudante.nota2}" />
+			<br/>
+			<h:outputText value="Comparando se nota1 é maior que nota2 = "/>
+			<h:outputLabel value="#{estudanteRegistrarBean.estudante.nota1 gt estudanteRegistrarBean.estudante.nota2}" />
+			<br/>
+			<h:outputText value="Comparando se nota1 é maior ou igual nota2 = "/>
+			<h:outputLabel value="#{estudanteRegistrarBean.estudante.nota1 ge estudanteRegistrarBean.estudante.nota2}" />
+			<br/>
+			<h:outputText value="Realizando testes com o ternário: "/>
+			<h:outputLabel value="#{estudanteRegistrarBean.estudante.nota1 == 0 ? 'VERDADEIRO' : 	'FALSO'}" />
+			<br/>
+			<h:outputText value="Realizando testes com o ternário: "/>
+			<h:outputLabel value="#{estudanteRegistrarBean.estudante.nota3 gt 0 ? estudanteRegistrarBean.estudante.nota3 : 'ZERO'}" />
+			
+			<br/>
+			<h:outputText value="Realizando atribuição. Obs.: válido somente no momento em que ocorre : "/>
+			<h:outputLabel value="#{estudanteRegistrarBean.estudante.nota3 + 50}" />
+			<br/>
+			
+			<h:outputText value="Realizando atribuição. Não altera os valores da classe. Exceto através de ajax ou form : "/>
+			<h:outputLabel value="#{estudanteRegistrarBean.estudante.nota3}" />
+			<br/>
+			
+			<h:outputText value="Concatenação = "/>
+			<h:outputLabel value="#{estudanteRegistrarBean.estudante.nome += ' Dantas'}" />
+			<br/>
+			
+			<h:outputText value="Valor da concatenação: "/>
+			<h:outputLabel value="#{estudanteRegistrarBean.estudante.nome == null ? 'NULL' : estudanteRegistrarBean.estudante.nome }" />
+			<br/>
+			<!-- <param-name>javax.faces.FACELETS_SKIP_COMMENTS</param-name> -->
+			<!--  Palavras reservadas: and, or, not, eq, ne, lt, gt, le, true, false, null, instanceof, empty, div e mod -->
+			
+			<ui:repeat var="current" value="#{Turnos.ALL_ENUM_VALUES}">  
+			    <h:outputText value="#{current.valor}" /> &#160;  
+			</ui:repeat>
+			
+			<h:outputText value="ENUNS get: "/>
+			<h:outputLabel value="#{estudanteRegistrarBean.estudante.turno}" />
+			<br/>			
+			
+			<h:outputText value="ENUNS comp: "/>
+			<h:outputLabel value="#{estudanteRegistrarBean.estudante.turno eq Turno.MATUTINO}" />
+			<br/>
+			
+			<h:outputText value="ARRAYS "/>
+			<h:outputLabel value="#{estudanteRegistrarBean.nomesArray[0]} #{estudanteRegistrarBean.nomesArray[1]}
+					#{estudanteRegistrarBean.nomesArray[2]}" />
+			<br/>
+			
+			<h:outputText value="ARRAYS loop"/><br/>
+			<ui:repeat var="itemArray" value="#{estudanteRegistrarBean.nomesArray}">
+				<h:outputLabel value="#{itemArray}" /><br/>
+			</ui:repeat>
+			<br/>
+			
+			<h:outputText value="LIST "/>
+			<h:outputLabel value="#{estudanteRegistrarBean.nomesList.get(0)} 
+					#{estudanteRegistrarBean.nomesList.get(1)}
+					#{estudanteRegistrarBean.nomesList.get(2)}" />
+			<br/>
+			
+			<h:outputText value="LIST loop"/><br/>
+			<ui:repeat var="itemList" value="#{estudanteRegistrarBean.nomesList}">
+				<h:outputLabel value="#{itemList}" /><br/>
+			</ui:repeat>
+			<br/>
+			
+			<h:outputText value="SET loop"/>
+			<ui:repeat var="itemSet" value="#{estudanteRegistrarBean.nomesList.toArray()}">
+				<h:outputLabel value="#{itemSet}" /><br/>
+			</ui:repeat>
+			<br/>
+			
+			
+			<h:outputText value="MAP "/>
+			<h:outputLabel value="#{estudanteRegistrarBean.nomesMap.get('Goku')}" />
+			<br/>
+			
+			<ui:repeat var="itemMap" value="#{estudanteRegistrarBean.nomesMap.entrySet().toArray()}">
+				<h:outputLabel value="#{itemMap.key} - #{itemMap.value}" /><br/>
+			</ui:repeat>
+			<br/>
+			
+			<h:outputText value="Chamando métodos "/>
+			<h:outputLabel value="#{estudanteRegistrarBean.executar()}" />
+			<br/>
+			<h:outputText value="Chamando métodos com parametros"/>
+			<h:outputLabel value="#{estudanteRegistrarBean.executar(estudanteRegistrarBean.estudante.nome)}" />
+			<br/>
+			<h:outputText value="Chamando métodos com parametros e retornando valor: "/>
+			<h:outputLabel value="#{estudanteRegistrarBean.executarRetorno(estudanteRegistrarBean.estudante.nome)}" />
+			<br/>
+			<h:form>
+				<br/>
+				<h:commandButton value="ir para index2" action="#{estudanteRegistrarBean.irParaIndex2()}" />				
+			</h:form>
+			
+			<br/>
+			<h:outputText value="Imprimindo CSS com EL"/>
+			<br/>
+			<ui:repeat var="itemArray" value="#{estudanteRegistrarBean.nomesArray}" varStatus="status">
+				<h:outputLabel value="#{status.index} - #{itemArray}" style="color:#{status.index mod 2 == 0 ? 'red' : 'green'}" /><br/>
+			</ui:repeat>
+			<br/>
+			
+			<h:outputText value="Imprimindo Javascript com EL"/>
+			<h:form>
+				<br/>
+				<h:commandButton value="Soltar magia"  onclick="fazMagica('Hadouken'); return false" />
+				<br/>
+				<h:commandButton value="Alert nome"  onclick="alertNome('#{estudanteRegistrarBean.estudante.nome}');return false" />
+				<br/>
+			</h:form>
+			
+			<br/>
+			<h:form id="formAjax">
+				<h:commandButton value="#{estudanteRegistrarBean.toogleNotas}">
+					<f:ajax render="pgNotas formAjax pgLink" listener="#{estudanteRegistrarBean.exibirEscondereNotas()}" />
+				</h:commandButton>		
+			</h:form>
+			<br/>
+			<h:panelGrid id="pgNotas">
+				<h:outputText value="Nota 1:  #{estudanteRegistrarBean.estudante.nota1}" 
+						rendered="#{estudanteRegistrarBean.mostrarNotas}" />
+				<h:outputText value="Nota 2: #{estudanteRegistrarBean.estudante.nota2}"
+						rendered="#{estudanteRegistrarBean.mostrarNotas}" />
+				<h:outputText value="Nota 3: #{estudanteRegistrarBean.estudante.nota3}" 
+						rendered="#{estudanteRegistrarBean.mostrarNotas}" />
+			</h:panelGrid>
+			<br/>
+			<h:panelGroup id="pgLink">
+				<ui:fragment rendered="#{estudanteRegistrarBean.mostrarNotas}">
+					<a href="http://www.google.com.br" target="_blank">http://www.google.com.br</a>
+				</ui:fragment>
+			</h:panelGroup>
+	</h:body>
+	<script type="text/javascript">
+		function fazMagica(magica){
+			alert(magica);
+		}
+		
+		function alertNome(nome){
+			alert(nome);
+		}
+	</script>
+</html>
