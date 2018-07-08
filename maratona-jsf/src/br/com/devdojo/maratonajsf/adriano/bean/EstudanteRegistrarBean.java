@@ -1,4 +1,4 @@
-package br.com.devdojo.maratonajsf.adriano.beans;
+package br.com.devdojo.maratonajsf.adriano.bean;
 
 import java.io.Serializable;
 import java.util.Arrays;

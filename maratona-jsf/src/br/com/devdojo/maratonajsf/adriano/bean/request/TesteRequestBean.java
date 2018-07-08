@@ -36,6 +36,7 @@ public class TesteRequestBean implements Serializable{
 	public void init() {
 		personagens = Arrays.asList("Yusuke", "Hiei", "Kurama");
 		System.out.println(personagens);
+		System.out.println("Entrou no @PostConstruct" + this.getClass().getName());
 	}
 	
 	public String redirect() {

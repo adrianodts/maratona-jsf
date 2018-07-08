@@ -36,6 +36,7 @@ public class TesteSessionBean implements Serializable{
 	public void init() {
 		personagens = Arrays.asList("Gohan", "Goku", "Vegeta");
 		System.out.println(personagens);
+		System.out.println("Entrou no @PostConstruct" + this.getClass().getName());
 	}
 	
 	public String logout() {

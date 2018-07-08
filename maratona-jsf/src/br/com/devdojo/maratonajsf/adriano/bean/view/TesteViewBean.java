@@ -35,6 +35,7 @@ public class TesteViewBean implements Serializable{
 	public void init() {
 		personagens = Arrays.asList("Naruto", "Hinata", "Yondaime");
 		System.out.println(personagens);
+		System.out.println("Entrou no @PostConstruct" + this.getClass().getName());
 	}
 	
 	
