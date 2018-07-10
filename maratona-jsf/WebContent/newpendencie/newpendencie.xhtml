@@ -9,11 +9,16 @@
 	
 	<h:head>
 		<h:body>
+			<p:messages autoUpdate="true"/>
 			<h:form>
-				<h3>Ponto de entrada FlowScoped</h3>	
-				<h:commandButton value="Entrar no flow" action="registration" />	
-				<h:commandButton value="Entrar no flow New" action="newregistration" />	
-			</h:form>
+				<h3>Primeira página de registro FlowScoped</h3>
+				<h:panelGrid columns="2">
+					<h:outputLabel value="#{testeFlowNestedBean.userName}"/>
+					<h:outputLabel value="#{testeFlowNestedBean.userSurname}"/>
+					<h:commandButton value="Validar usuário" action="#{testeFlowNestedBean.validarUser()}"/>
+					<h:commandButton value="Inicio" action="exitToInicio"/>
+				</h:panelGrid>
+			</h:form>		
 		</h:body>
 	</h:head>
 </html>
