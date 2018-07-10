@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config
+    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+    version="2.2">
+
+	<flow-definition id="pendencie">
+		<flow-return id="proceedToRegistration">
+			<from-outcome>registration/registration3</from-outcome>
+		</flow-return>
+		<flow-return id="exitToInicio">
+			<from-outcome>registrationInicio</from-outcome>
+		</flow-return>
+		<inbound-parameter>
+			<name>userName</name>
+			<value>#{testeFlowNestedBean.userName}</value>
+		</inbound-parameter>
+		<inbound-parameter>
+			<name>userSurname</name>
+			<value>#{testeFlowNestedBean.userSurname}</value>
+		</inbound-parameter>
+	</flow-definition>
+</faces-config>
