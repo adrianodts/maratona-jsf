@@ -7,19 +7,18 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 	
-	<h:head>
-		<h:body>
-			<h:messages/>
-			<h:form>
-				<h3>Primeira página de registro FlowScoped</h3>
-				<h:panelGrid columns="2">
-					<h:outputLabel value="None" />
-					<h:inputText value="#{testeFlowBuilderBean.nome}" required="true" requiredMessage="Nome obrigatório"/>				
-					<h:outputLabel value="Sobrenone" />
-					<h:inputText value="#{testeFlowBuilderBean.sobreNome}" />
-					<h:commandButton value="Next" action="newRegistrationPage2" />
-				</h:panelGrid>
-			</h:form>		
-		</h:body>
-	</h:head>
+	<h:head></h:head>
+	<h:body>
+		<h:messages/>
+		<h:form>
+			<h3>Primeira página de registro FlowScoped</h3>
+			<h:panelGrid columns="2">
+				<h:outputLabel value="None" />
+				<h:inputText value="#{testeFlowBuilderBean.nome}" required="true" requiredMessage="Nome obrigatório"/>				
+				<h:outputLabel value="Sobrenone" />
+				<h:inputText value="#{testeFlowBuilderBean.sobreNome}" />
+				<h:commandButton value="Next" action="newRegistrationPage2" />
+			</h:panelGrid>
+		</h:form>		
+	</h:body>
 </html>

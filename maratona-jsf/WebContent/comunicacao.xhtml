@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:head></h:head>
+	<h:body>
+		<h:form>
+			<h:panelGrid columns="1">
+				<h:outputLabel value="#{facesContext.externalContext.getInitParameter('images.location')}"></h:outputLabel>
+				<h:commandButton value="Imprimir" actionListener="#{comunicacaoBean.imprimirAtributos()}"/>
+			</h:panelGrid>	
+		</h:form>
+		<h:form>
+			<h:panelGrid columns="1">
+				<h:inputText value="#{comunicacaoBean.nome}"/>
+				<h:inputText value="#{comunicacaoBean.sobrenome}"/>
+				<h:commandButton value="Save" action="comunicacao2">
+					<f:param name="nome" value="Devdojo"/>
+					<f:param name="sobrenome" value="Ninjas"/>
+				</h:commandButton>
+				<!-- Redirect NÃO FUNCIONA com commandButton, pois ele da POST, que manda pelo body, não pela url -->
+				<h:commandButton value="Save c/ redirect" action="comunicacao2?faces-redirect=true">
+					<f:param name="nome" value="Devdojo"/>
+					<f:param name="sobrenome" value="Ninjas"/>
+				</h:commandButton>		
+				<!-- fim -->		
+				<h:button value="vai para comunicacao2 com button" outcome="comunicacao2?faces-redirect=true">
+					<f:param name="nome" value="Devdojo"/>
+					<f:param name="sobrenome" value="Ninjas"/>
+				</h:button>
+				<h:link value="vai para comunicacao2 com link" outcome="comunicacao2">
+					<f:param name="nome" value="Devdojo"/>
+					<f:param name="sobrenome" value="Ninjas"/>
+				</h:link>
+			</h:panelGrid>	
+		</h:form>
+	</h:body>
+</html>

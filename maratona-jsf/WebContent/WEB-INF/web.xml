@@ -19,6 +19,15 @@
 		<url-pattern>*.xhtml</url-pattern>
 	</servlet-mapping>
 	
+	<filter>
+		<filter-name>LoginFilter</filter-name>
+		<filter-class>br.com.devdojo.maratonajsf.adriano.filter.LoginFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>LoginFilter</filter-name>
+		<url-pattern>/restricted/*</url-pattern>
+	</filter-mapping>
+	
 	<listener>
         <listener-class>org.jboss.weld.environment.servlet.Listener</listener-class>
     </listener>
@@ -42,4 +51,10 @@
     <error-page>
     	<location>/error.xhtml</location>
     </error-page>
+    
+    <context-param>
+    	<param-name>images.location</param-name>
+    	<param-value>C:\cursos\devdojo-workspace\images</param-value>
+    </context-param>
+    
 </web-app>

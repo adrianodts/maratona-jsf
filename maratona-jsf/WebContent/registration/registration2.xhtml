@@ -7,18 +7,17 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 	
-	<h:head>
-		<h:body>
-			<h:form>
-				<h3>Primeira página de registro FlowScoped</h3>
-				<h:panelGrid columns="2">
-					<h:outputLabel value="Endereço" />
-					<h:inputText value="#{testeFlowBean.endereco}" />
-					<h:commandButton value="Back" action="registration?faces-redirect=true" />						
-					<h:commandButton value="Next" action="registration3?faces-redirect=true" />			
-					<h:commandButton value="Validar Pendencias" action="callPendencie" />			
-				</h:panelGrid>
-			</h:form>		
-		</h:body>
-	</h:head>
+	<h:head></h:head>
+	<h:body>
+		<h:form>
+			<h3>Primeira página de registro FlowScoped</h3>
+			<h:panelGrid columns="2">
+				<h:outputLabel value="Endereço" />
+				<h:inputText value="#{testeFlowBean.endereco}" />
+				<h:commandButton value="Back" action="registration?faces-redirect=true" />						
+				<h:commandButton value="Next" action="registration3?faces-redirect=true" />			
+				<h:commandButton value="Validar Pendencias" action="callPendencie" />			
+			</h:panelGrid>
+		</h:form>		
+	</h:body>
 </html>

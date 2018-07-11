@@ -7,22 +7,21 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 
-	<h:head>
-		<f:metadata>
-			<f:viewAction action="#{testeConversationBean.init}" />
-		</f:metadata>
-		<h:body>
-			<h:form>
-				<h:outputText value="#{testeApplicationBean.categoriaList}" /> <br/>
-				<h:outputText value="#{testeConversationBean.personagemSelecionado}" /> <br/>
-				<h:commandButton actionListener="#{testeConversationBean.selecionarPersonagem}" value="Selecionar Personagem" /><br/>
-				<h:commandButton value="Selecionar Personagem Forward" action="conversation2"/><br/>
-				<h:commandButton value="Selecionar Personagem Redirect" action="conversation2?faces-redirect=true"/>
-				<h:link outcome="conversation2" value="Vai para conversartion2" rendered="#{!testeConversationBean.conversation.transient}">
-					<f:param name="cid" value="#{testeConversationBean.conversation.id}" />
-				</h:link>
-				<h:commandButton actionListener="#{testeConversationBean.endConversation}" value="Finalizar Conversation Scoped" /><br/>
-			</h:form>
-		</h:body>
-	</h:head>
+	<h:head></h:head>
+	<f:metadata>
+		<f:viewAction action="#{testeConversationBean.init}" />
+	</f:metadata>
+	<h:body>
+		<h:form>
+			<h:outputText value="#{testeApplicationBean.categoriaList}" /> <br/>
+			<h:outputText value="#{testeConversationBean.personagemSelecionado}" /> <br/>
+			<h:commandButton actionListener="#{testeConversationBean.selecionarPersonagem}" value="Selecionar Personagem" /><br/>
+			<h:commandButton value="Selecionar Personagem Forward" action="conversation2"/><br/>
+			<h:commandButton value="Selecionar Personagem Redirect" action="conversation2?faces-redirect=true"/>
+			<h:link outcome="conversation2" value="Vai para conversartion2" rendered="#{!testeConversationBean.conversation.transient}">
+				<f:param name="cid" value="#{testeConversationBean.conversation.id}" />
+			</h:link>
+			<h:commandButton actionListener="#{testeConversationBean.endConversation}" value="Finalizar Conversation Scoped" /><br/>
+		</h:form>
+	</h:body>
 </html>

@@ -7,22 +7,21 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 	
-	<h:head>
-		<h:body>
-			<h:form>
-				<h3>Primeira página de registro FlowScoped</h3>
-				<h:panelGrid columns="2">
-					<h:outputLabel value="Nome" />
-					<h:outputLabel value="#{testeFlowBean.nome}" /> <br/>
-					<h:outputLabel value="Sobrenome" />				
-					<h:outputLabel value="#{testeFlowBean.sobreNome}" /> <br/>
-					<h:outputLabel value="Endereço" />		
-					<h:outputLabel value="#{testeFlowBean.endereco}" /> <br/>
-				</h:panelGrid>
-				<h:commandButton value="Back" action="registration2?faces-redirect=true" />
+	<h:head></h:head>	
+	<h:body>
+		<h:form>
+			<h3>Primeira página de registro FlowScoped</h3>
+			<h:panelGrid columns="2">
+				<h:outputLabel value="Nome" />
+				<h:outputLabel value="#{testeFlowBean.nome}" /> <br/>
+				<h:outputLabel value="Sobrenome" />				
+				<h:outputLabel value="#{testeFlowBean.sobreNome}" /> <br/>
+				<h:outputLabel value="Endereço" />		
+				<h:outputLabel value="#{testeFlowBean.endereco}" /> <br/>
+			</h:panelGrid>
+			<h:commandButton value="Back" action="registration2?faces-redirect=true" />
 <!-- 					<h:commandButton value="Salvar" action="#{testeFlowBean.salvar()}" /> -->
-				<h:commandButton value="Salvar" action="exitToInicio" />
-			</h:form>		
-		</h:body>
-	</h:head>
+			<h:commandButton value="Salvar" action="exitToInicio" />
+		</h:form>		
+	</h:body>
 </html>

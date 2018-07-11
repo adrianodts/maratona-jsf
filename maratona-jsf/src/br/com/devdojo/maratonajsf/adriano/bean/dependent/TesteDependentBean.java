@@ -1,4 +1,4 @@
-package br.com.devdojo.maratonajsf.adriano.bean.session;
+package br.com.devdojo.maratonajsf.adriano.bean.dependent;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -7,26 +7,18 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.SessionScoped;
-import javax.faces.context.FacesContext;
+import javax.enterprise.context.Dependent;
 import javax.inject.Named;
 
-import br.com.devdojo.maratonajsf.adriano.model.Estudante;
-
 @Named
-@SessionScoped
-public class TesteSessionBean implements Serializable{
-	private static final long serialVersionUID = 1L;
+@Dependent
+public class TesteDependentBean implements Serializable {
+
+private static final long serialVersionUID = 1L;
+	
 	private List<String> personagens;
 	private List<String> personagemSelecionado = new ArrayList<String>();
-	private Estudante estudante;
-	
-	
-
-	public void logar()
-	{
-		estudante = new Estudante();
-	}
+		
 	
 	public List<String> getPersonagemSelecionado() {
 		return personagemSelecionado;
@@ -34,14 +26,6 @@ public class TesteSessionBean implements Serializable{
 
 	public void setPersonagemSelecionado(List<String> personagemSelecionado) {
 		this.personagemSelecionado = personagemSelecionado;
-	}
-	
-	public Estudante getEstudante() {
-		return estudante;
-	}
-
-	public void setEstudante(Estudante estudante) {
-		this.estudante = estudante;
 	}
 
 	public void selecionarPersonagem() {
@@ -52,15 +36,9 @@ public class TesteSessionBean implements Serializable{
 	
 	@PostConstruct
 	public void init() {
-		personagens = Arrays.asList("Gohan", "Goku", "Vegeta");
-		logar();
+		personagens = Arrays.asList("Batman", "Aquaman", "Superman");
 		System.out.println(personagens);
 		System.out.println("Entrou no @PostConstruct" + this.getClass().getName());
-	}
-	
-	public String logout() {
-		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
-		return "session?faces-redirect=true";
 	}
 	
 }
