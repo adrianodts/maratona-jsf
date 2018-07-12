@@ -5,7 +5,8 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:of="http://omnifaces.org/functions">
 
 	<h:head></h:head>
 	<h:body>
@@ -36,6 +37,12 @@
 				<h:link value="vai para comunicacao2 com link" outcome="comunicacao2">
 					<f:param name="nome" value="Devdojo"/>
 					<f:param name="sobrenome" value="Ninjas"/>
+				</h:link>
+				<!-- Redirect para comunicacao3 -->
+				<h:link value="vai para comunicacao3" outcome="comunicacao3">
+					<f:param name="nome" value="Devdojo"/>
+					<f:param name="sobrenome" value="Ninjas"/>
+					<f:param name="data" value="#{of:formatDate(comunicacaoBean.data ,'dd-MM-yyyy')}"/>
 				</h:link>
 			</h:panelGrid>	
 		</h:form>

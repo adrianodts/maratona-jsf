@@ -1,5 +1,8 @@
 package br.com.devdojo.maratonajsf.adriano.model;
 
+import java.util.Arrays;
+import java.util.List;
+
 import br.com.devdojo.maratonajsf.adriano.model.enums.Turno;
 
 public class Estudante {
@@ -46,6 +49,18 @@ public class Estudante {
 	}
 	public void setTurno(Turno turno) {
 		this.turno = turno;
+	}
+	public Estudante() {}
+	public Estudante(String nome,String sobrenome, double nota1) {
+		this.nome = nome;
+		this.sobrenome = sobrenome;
+		this.nota1 = nota1;
+	}
+	public static List<Estudante> estudanteList() {		
+		return Arrays.asList(
+			new Estudante("Clark", "Kent", 9),
+			new Estudante("Bruce ", "Wayne", 8),
+			new Estudante("Diana", "Prince", 10));
 	}
 
 }

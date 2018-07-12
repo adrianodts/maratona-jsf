@@ -3,18 +3,18 @@ package br.com.devdojo.maratonajsf.adriano.bean.comunicacao;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 
 @Named
 @ViewScoped
-public class ComunicacaoBean implements Serializable {
+public class Comunicacao3Bean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+
 	private String nome;
 	private String sobrenome;
-	private Date data = new Date();
+	private Date data;
 	
 	
 	public Date getData() {
@@ -35,21 +35,12 @@ public class ComunicacaoBean implements Serializable {
 	public void setSobrenome(String sobrenome) {
 		this.sobrenome = sobrenome;
 	}
-	
-	public void imprimirAtributos() {
-		String initParameter = FacesContext.getCurrentInstance().getExternalContext().getInitParameter("images.location");
-		System.out.println(initParameter);
+	public void init() {
+//		if(!FacesContext.getCurrentInstance().isPostback()) {
+			System.out.println("Criou Comunicacao3Bean");
+			System.out.println(nome);
+			System.out.println(sobrenome);
+			System.out.println(data);
+//		}
 	}
-	
-	public String save() {
-		System.out.println(nome);
-		System.out.println(sobrenome);
-		return "comunicacao2?faces-redirect=true&nome="+nome+"&sobrenome="+sobrenome;
-	}
-	
-//	@PostConstruct
-//	public void init()
-//	{
-//		dataString = new SimpleDateFormat("dd-MM-yyyy").format(data);
-//	}
 }

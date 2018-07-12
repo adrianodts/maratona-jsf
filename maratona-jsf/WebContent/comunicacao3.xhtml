@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:o="http://omnifaces.org/ui">
+
+	<h:head></h:head>
+	<f:metadata>
+		<f:viewParam name="nome" value="#{comunicacao3Bean.nome}"/>
+		<f:viewParam name="sobrenome" value="#{comunicacao3Bean.sobrenome}"/>
+		<f:viewParam name="data" value="#{comunicacao3Bean.data}">
+			<f:convertDateTime pattern="dd-MM-yyyy"/>
+		</f:viewParam>
+		<!--<f:event type="preRenderView" listener="#{comunicacao3Bean.init}" /> -->
+		<f:viewAction action="#{comunicacao3Bean.init}" />
+	</f:metadata>
+	<h:body>
+		<o:form includeRequestParams="true">
+			<h:panelGrid columns="1">
+				<p:messages autoUpdate="true"/>
+				<h:inputText value="#{comunicacao3Bean.nome}" required="true" requiredMessage="Nome é obrigatório">
+					<f:ajax event="blur" />
+				</h:inputText>
+				<h:inputText value="#{comunicacao3Bean.sobrenome}" required="true" requiredMessage="Sobrenome é obrigatório"/>
+				<h:outputLabel value="#{comunicacao3Bean.data}"/>
+				<!-- Redirect para comunicacao3 -->
+				<h:commandButton value="Resultado" action="resultado?faces-redirect=true&amp;includeViewParams=true" />
+			</h:panelGrid>	
+		</o:form>
+	</h:body>
+</html>
