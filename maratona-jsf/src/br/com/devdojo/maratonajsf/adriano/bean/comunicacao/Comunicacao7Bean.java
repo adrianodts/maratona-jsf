@@ -20,8 +20,7 @@ public class Comunicacao7Bean implements Serializable {
 		return estudante;
 	}
 
-	//@PostConstruct
-	public void init()
+	public void onLoad()
 	{
 		Flash flash = FacesContext.getCurrentInstance().getExternalContext().getFlash();
 		estudante = (Estudante)flash.get("estudante");		

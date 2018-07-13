@@ -10,17 +10,17 @@
 
 	<h:head></h:head>
 	<f:metadata>
-		<f:viewAction action="#{comunicacao7Bean.onLoad()}" />
+		<f:viewAction action="#{comunicacao9Bean.init}" />
 	</f:metadata>
 	<h:body>
-		<h:inputHidden value="#{flash.keep}"/>
-		<h:inputHidden value="#{flash.estudante}"/>
-		<h:form>
-			<h:panelGrid columns="1">
-				<p:messages autoUpdate="true"/>				
-				<h:outputLabel value="#{comunicacao7Bean.estudante.nome}" />	|
-				<h:outputLabel value="#{comunicacao7Bean.estudante.sobrenome}" /> |
-				<h:outputLabel value="#{comunicacao7Bean.estudante.nota1}" /> |
+		<h:form includeRequestParams="true">
+			<h:panelGrid columns="1" id="pgCookie">
+				<p:messages autoUpdate="true"/>
+				<h:outputLabel value="Cookie Value : "/>
+				<h:outputLabel value="#{comunicacao9Bean.value}" />
+				<h:commandButton value="Remover">
+					<f:ajax render="pgCookie" listener="#{comunicacao9Bean.removerCookie}" />
+				</h:commandButton>				
 			</h:panelGrid>	
 		</h:form>
 	</h:body>
