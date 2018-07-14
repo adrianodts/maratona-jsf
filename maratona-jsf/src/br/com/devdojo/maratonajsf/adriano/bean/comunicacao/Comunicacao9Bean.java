@@ -12,6 +12,7 @@ import org.omnifaces.util.Faces;
 public class Comunicacao9Bean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+
 	private static String key = "nome";
 	private String value;
 	
@@ -31,4 +32,5 @@ public class Comunicacao9Bean implements Serializable {
 	private String getCookieValue(String key) {
 		return Faces.getRequestCookie(key);
 	}
+
 }

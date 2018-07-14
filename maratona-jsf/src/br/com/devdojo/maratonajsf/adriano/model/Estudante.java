@@ -1,5 +1,6 @@
 package br.com.devdojo.maratonajsf.adriano.model;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -14,6 +15,14 @@ public class Estudante {
 	private double nota3 = 10;
 	private Turno turno = Turno.MATUTINO;
 	
+	private static List<Estudante> estudanteList = new ArrayList<Estudante>(Arrays.asList(
+			new Estudante("Clark", "Kent", 9),
+			new Estudante("Bruce ", "Wayne", 8),
+			new Estudante("Diana", "Prince", 10)));
+	
+	public static void setEstudanteList(List<Estudante> estudanteList) {
+		Estudante.estudanteList = estudanteList;
+	}
 	public String getNome() {
 		return nome;
 	}
@@ -56,11 +65,10 @@ public class Estudante {
 		this.sobrenome = sobrenome;
 		this.nota1 = nota1;
 	}
-	public static List<Estudante> estudanteList() {		
-		return Arrays.asList(
-			new Estudante("Clark", "Kent", 9),
-			new Estudante("Bruce ", "Wayne", 8),
-			new Estudante("Diana", "Prince", 10));
+	
+	public List<Estudante> getEstudanteList() {		
+		return estudanteList;
 	}
+	
 
 }

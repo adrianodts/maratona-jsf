@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:o="http://omnifaces.org/ui">
+
+	<h:head></h:head>
+	<f:metadata>
+		<f:viewAction action="#{comunicacaoImmediateBean.init()}"/>
+	</f:metadata>
+	<h:body>
+		<p:messages autoUpdate="true"/>
+		<h:panelGrid columns="2">			
+			<h:outputLabel value="Nome : "/>
+			<h:outputLabel value="#{comunicacaoImmediateBean.estudante.nome}"/> 			
+			<h:outputLabel value="Sobrenome : "/>
+			<h:outputLabel value="#{comunicacaoImmediateBean.estudante.sobrenome}"/>
+			<h:outputLabel value="Nota 1 : "/>
+			<h:outputLabel value="#{comunicacaoImmediateBean.estudante.nota1}"/>
+		</h:panelGrid>
+		<br/>
+		<h:form>
+			<h:panelGrid columns="1">
+				<h:outputLabel value="Nome : "/>
+				<h:inputText value="#{comunicacaoImmediateBean.estudante2.nome}" 
+					converter="javax.faces.Number" immediate="true" required="true" />	
+				<h:outputLabel value="Sobrenome : "/>
+				<h:inputText value="#{comunicacaoImmediateBean.estudante2.sobrenome}" 
+					converter="javax.faces.BigDecimal" required="true"/>
+				
+				<!-- Valida e realiza todo o fluxo do ciclo de vida, porém verifica primeiro os inputs que estão marcados como immediate=true-->							
+				<h:commandButton value="voltar immediate = false" actionListener="#{comunicacaoImmediateBean.voltar()}"
+					immediate="false"/>				
+				
+				<!-- Não valida os inputs e não realiza todo o fluxo do ciclo de vida -->							
+				<h:commandButton value="voltar immediate=true" actionListener="#{comunicacaoImmediateBean.voltar()}"
+					immediate="true"/>				
+			</h:panelGrid>	
+		</h:form>
+	</h:body>
+</html>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:o="http://omnifaces.org/ui">
+
+	<h:head></h:head>
+	<f:metadata>
+		<f:viewAction action="#{comunicacao12Bean.init()}"/>
+	</f:metadata>
+	<h:body>
+		<h:form>
+			<p:messages autoUpdate="true"/>
+			<h:panelGrid columns="2">
+				<h:outputLabel value="Nome : "/>
+				<h:inputText value="#{comunicacao12Bean.estudante.nome}" required="true"/>				
+				<h:outputLabel value="Sobrenome : "/>
+				<h:inputText value="#{comunicacao12Bean.estudante.sobrenome}" required="true"/>
+				<h:outputLabel value="Nota 1 : "/>
+				<h:inputText value="#{comunicacao12Bean.estudante.nota1}" required="true"/>	
+				&nbsp;
+				<h:panelGrid columns="2">
+					<h:commandButton value="salvar" action="#{comunicacao12Bean.salvar()}"/>
+					<h:commandButton value="immediate" action="comunicacaoImmediate?faces-redirect=true"/>			
+				</h:panelGrid>										
+			</h:panelGrid>				
+		</h:form>
+	</h:body>
+</html>
