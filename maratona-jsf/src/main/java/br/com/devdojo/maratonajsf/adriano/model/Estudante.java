@@ -14,7 +14,7 @@ public class Estudante {
 	private double nota2 = 9;
 	private double nota3 = 9;
 	private Turno turno = Turno.MATUTINO;
-	
+	private String email;
 	private static List<Estudante> estudanteList = new ArrayList<Estudante>(Arrays.asList(
 			new Estudante("Clark", "Kent", 9),
 			new Estudante("Bruce ", "Wayne", 8),
@@ -69,6 +69,11 @@ public class Estudante {
 	public List<Estudante> getEstudanteList() {		
 		return estudanteList;
 	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	
-
 }
