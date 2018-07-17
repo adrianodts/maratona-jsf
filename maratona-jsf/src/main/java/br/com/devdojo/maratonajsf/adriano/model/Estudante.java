@@ -1,13 +1,14 @@
 package br.com.devdojo.maratonajsf.adriano.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import br.com.devdojo.maratonajsf.adriano.model.enums.Turno;
 
-public class Estudante {
-
+public class Estudante implements Serializable {
+	private Integer id;
 	private String nome = "Adriano";
 	private String sobrenome = "Dantas";
 	private double nota1 = 10; 
@@ -16,10 +17,16 @@ public class Estudante {
 	private Turno turno = Turno.MATUTINO;
 	private String email;
 	private static List<Estudante> estudanteList = new ArrayList<Estudante>(Arrays.asList(
-			new Estudante("Clark", "Kent", 9),
-			new Estudante("Bruce ", "Wayne", 8),
-			new Estudante("Diana", "Prince", 10)));
+			new Estudante(1, "Clark", "Kent", 9),
+			new Estudante(2, "Bruce ", "Wayne", 8),
+			new Estudante(3, "Diana", "Prince", 10)));
 	
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	public static void setEstudanteList(List<Estudante> estudanteList) {
 		Estudante.estudanteList = estudanteList;
 	}
@@ -65,7 +72,12 @@ public class Estudante {
 		this.sobrenome = sobrenome;
 		this.nota1 = nota1;
 	}
-	
+	public Estudante(Integer id, String nome,String sobrenome, double nota1) {
+		this.id = id;
+		this.nome = nome;
+		this.sobrenome = sobrenome;
+		this.nota1 = nota1;
+	}
 	public List<Estudante> getEstudanteList() {		
 		return estudanteList;
 	}
@@ -75,5 +87,27 @@ public class Estudante {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Estudante other = (Estudante) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
+	}
 }

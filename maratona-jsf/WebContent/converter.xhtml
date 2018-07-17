@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:o="http://omnifaces.org/ui">
+
+	<h:head></h:head>
+	<h:body>
+		<h:form>
+			<p:messages autoUpdate="true"/>
+			<h:panelGrid columns="1">
+				<h:outputLabel value="Selecione um estudante: "/>
+				<h:selectOneMenu value="#{converterTesteBean.estudante}" converter="estudanteConverter" >
+					<f:selectItems value="#{converterTesteBean.estudanteList}" 
+						var="estudante" itemLabel="#{estudante.nome}"
+						itemValue="#{estudante}">
+					</f:selectItems>
+				</h:selectOneMenu>
+				<h:commandButton value="salvar" actionListener="#{validatorTesteBean.save}"/>
+			</h:panelGrid>	
+			<h:panelGrid columns="2">
+				<h:outputLabel value="Nome : "/>
+				<h:outputLabel value="#{converterTesteBean.estudante.nome}"/>				
+				<h:outputLabel value="Sobrenome : "/>
+				<h:outputLabel value="#{converterTesteBean.estudante.sobrenome}"/>
+				<h:outputLabel value="Nota 1 : "/>
+				<h:outputLabel value="#{converterTesteBean.estudante.nota1}"/>									
+			</h:panelGrid>						
+		</h:form>
+	</h:body>
+</html>
