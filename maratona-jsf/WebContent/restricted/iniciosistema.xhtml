@@ -8,12 +8,22 @@
 	xmlns:p="http://primefaces.org/ui">
 
 	<h:head></h:head>
-	<h:body>
-		<h:form>
-			<h:panelGrid>
-				<h:outputLabel value="Usuario logado: #{loginBean.nome}" />
-				<h:commandButton value="Logout" action="#{loginBean.logout}"/>
-			</h:panelGrid>
-		</h:form>
-	</h:body>
+	<f:view locale="#{loginBean.language}">
+		<h:outputLabel value="#{loginBean.language}"/>
+		<h:body>
+			<h:form>
+				<h:panelGrid>
+					<h:outputLabel value="#{m.userLogged} #{loginBean.nome}" />
+					<h:outputFormat value="#{m.userLogged}">
+						<f:param value="#{loginBean.estudante.nome}"/>
+						<f:param value="#{loginBean.estudante.sobrenome}"/>
+					</h:outputFormat><br/>
+					<h:outputFormat value="#{m.alert}">
+						<f:param value="#{loginBean.qtdMensagem}"/>
+					</h:outputFormat><br/>
+					<h:commandButton value="Logout" action="#{loginBean.logout}"/>
+				</h:panelGrid>
+			</h:form>
+		</h:body>
+	</f:view>
 </html>

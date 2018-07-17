@@ -16,6 +16,12 @@
 				<h:inputText value="#{loginBean.nome}" required="true" requiredMessage="Informe o nome do usuario" />
 				<h:outputLabel value="Senha" />
 				<h:inputSecret value="#{loginBean.senha}" required="true" requiredMessage="Informe a senha do usuario"/>
+				<h:selectOneMenu value="#{loginBean.language}">
+					<f:selectItems value="#{loginBean.localeList}" 
+						var="locale" 
+						itemValue="#{locale.language}" itemLabel="#{locale.displayLanguage}">
+					</f:selectItems>
+				</h:selectOneMenu>
 				<h:commandButton value="Login" action="#{loginBean.login}"/>
 			</h:panelGrid>
 		</h:form>

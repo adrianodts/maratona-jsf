@@ -8,11 +8,11 @@ import br.com.devdojo.maratonajsf.adriano.model.enums.Turno;
 
 public class Estudante {
 
-	private String nome = "";
-	private String sobrenome;
-	private double nota1; 
-	private double nota2;
-	private double nota3 = 10;
+	private String nome = "Adriano";
+	private String sobrenome = "Dantas";
+	private double nota1 = 10; 
+	private double nota2 = 9;
+	private double nota3 = 9;
 	private Turno turno = Turno.MATUTINO;
 	
 	private static List<Estudante> estudanteList = new ArrayList<Estudante>(Arrays.asList(
