@@ -1,7 +1,6 @@
 package br.com.devdojo.maratonajsf.adriano.bean.application;
 
 import java.io.Serializable;
-import java.lang.reflect.Constructor;
 import java.util.Arrays;
 import java.util.List;
 
