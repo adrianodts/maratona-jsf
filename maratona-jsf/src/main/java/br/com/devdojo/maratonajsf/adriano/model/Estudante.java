@@ -23,6 +23,7 @@ public class Estudante implements Serializable {
 	private String email;
 	private static List<Estudante> estudanteList = new ArrayList<Estudante>(Arrays.asList(
 			new Estudante(1, "Clark", "Kent", 9),
+			new Estudante(1, "Clark", "Kent", 9), //testar hashset 
 			new Estudante(2, "Bruce ", "Wayne", 8),
 			new Estudante(3, "Diana", "Prince", 10)));
 	
