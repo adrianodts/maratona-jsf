@@ -1,6 +1,5 @@
 package br.com.devdojo.maratonajsf.adriano.Converters;
 
-import java.util.List;
 import java.util.Map;
 
 import javax.faces.component.UIComponent;
@@ -12,7 +11,7 @@ import br.com.devdojo.maratonajsf.adriano.model.Estudante;
 
 @FacesConverter(value="estudanteConverter")
 public class EstudanteConverter implements Converter {
-	private List<Estudante> estudanteList = new Estudante().getEstudanteList();
+	//private List<Estudante> estudanteList = new Estudante().getEstudanteList();
 	
 	@Override
 	public Object getAsObject(FacesContext context, UIComponent component, String value) {

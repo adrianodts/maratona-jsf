@@ -35,11 +35,10 @@ public class TesteFlowNestedBean implements Serializable {
 	public String validarUser() {
 		System.out.println("Fazendo consulta na SERASA");
 		System.out.println("Fazendo consulta no SPC");
-		if(true) {
-			FacesContext context = FacesContext.getCurrentInstance();
-			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuário não passou nas pendências", "Algum detalge útil"));
-			return null;
-		}
-		return "proceedToRegistration";
+		
+		FacesContext context = FacesContext.getCurrentInstance();
+		context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuário não passou nas pendências", "Algum detalge útil"));
+		return null;
+		//return "proceedToRegistration";
 	}
 }

@@ -8,6 +8,11 @@ import java.util.List;
 import br.com.devdojo.maratonajsf.adriano.model.enums.Turno;
 
 public class Estudante implements Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer id;
 	private String nome = "Adriano";
 	private String sobrenome = "Dantas";
