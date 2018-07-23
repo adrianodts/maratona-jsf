@@ -1,8 +1,7 @@
 package br.com.devdojo.maratonajsf.adriano.bean.datatable;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -65,6 +64,25 @@ public class DataTableTesteBean implements Serializable {
 
 	public void setEstudanteList(List<Estudante> estudanteList) {
 		this.estudanteList = estudanteList;
+	}
+	
+	public void orderByName(String ordem) {
+		if(ordem.equals("asc"))
+			estudanteList.sort(Comparator.comparing(Estudante::getNome));
+		else if(ordem.equals("desc"))
+			estudanteList.sort(Comparator.comparing(Estudante::getNome).reversed());
+	}
+	public void orderBySobreNome(String ordem) {
+		if(ordem.equals("asc"))
+			estudanteList.sort(Comparator.comparing(Estudante::getSobrenome));
+		else if(ordem.equals("desc"))
+			estudanteList.sort(Comparator.comparing(Estudante::getSobrenome).reversed());
+	}
+	public void orderByNota1(String ordem) {
+		if(ordem.equals("asc"))
+			estudanteList.sort(Comparator.comparing(Estudante::getNota1));
+		else if(ordem.equals("desc"))
+			estudanteList.sort(Comparator.comparing(Estudante::getNota1).reversed());
 	}
 	
 	

@@ -18,15 +18,36 @@
 			<h:panelGrid columns="1">
 				<h:dataTable value="#{dataTableTesteBean.estudanteList}" var="estudante">
 					<h:column>
-						<f:facet name="header">Nome</f:facet>
+						<f:facet name="header">
+							<h:commandLink actionListener="#{dataTableTesteBean.orderByName('asc')}">
+								Nome asc
+							</h:commandLink>
+							<h:commandLink actionListener="#{dataTableTesteBean.orderByName('desc')}">
+								Nome desc
+							</h:commandLink>
+						</f:facet>
 						<h:outputLabel value="#{estudante.nome}"/>
 					</h:column>
 					<h:column>
-						<f:facet name="header">Sobrenome</f:facet>
+						<f:facet name="header">
+							<h:commandLink actionListener="#{dataTableTesteBean.orderBySobreNome('asc')}">
+								Sobrenome asc
+							</h:commandLink>
+							<h:commandLink actionListener="#{dataTableTesteBean.orderBySobreNome('desc')}">
+								Sobrenome desc
+							</h:commandLink>
+						</f:facet>
 						<h:outputLabel value="#{estudante.sobrenome}"/>
 					</h:column>					
 					<h:column>
-						<f:facet name="header">Nota1</f:facet>
+						<f:facet name="header">
+							<h:commandLink actionListener="#{dataTableTesteBean.orderByNota1('asc')}">
+								Nota1 asc
+							</h:commandLink>
+							<h:commandLink actionListener="#{dataTableTesteBean.orderByNota1('desc')}">
+								Nota1 desc
+							</h:commandLink>
+						</f:facet>
 						<h:outputLabel value="#{estudante.nota1}"/>
 					</h:column>
 					<h:column>
